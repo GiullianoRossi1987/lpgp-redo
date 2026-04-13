@@ -1,0 +1,35 @@
+services: 
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: docker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: teste
+    volumes:
+      - ./db/db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 6611:5432
+    networks:
+      - nlpgp
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_started
+    ports:
+      - 8080:8080
+    networks:
+      - nlpgp
+    environment:
+      - HOSTNAME=db
+      - USERNAME=postgres
+      - PASSWORD=teste
+      - DATABASE=docker
+      - PORT=5432
+networks:
+  nlpgp:
+    driver: bridge
+
+
