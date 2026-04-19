@@ -16,7 +16,8 @@ create table if not exists emails (
 	id_user INTEGER NOT NULL,
 	email TEXT NOT NULL,
 	verified BOOLEAN NOT NULL DEFAULT FALSE,
-	last_verification_code TIMESTAMP NOT NULL,
+	last_verification_code TEXT NOT NULL,
+	last_verification_code_sent_at TIMESTAMP NOT NULL,
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

@@ -2,3 +2,11 @@
 composer.phar
 
 bin
+
+test.php
+
+.php-cs-fixer.cache
+
+.php-cs-fixer.dist.php
+
+vendor

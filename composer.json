@@ -1,2 +1,10 @@
-
-{}
+{
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.75"
+    },
+    "require": {
+        "php-cs-fixer/shim": "^3.95",
+        "symfony/polyfill-mbstring": "^1.31",
+        "amphp/postgres": "^2.2"
+    }
+}
